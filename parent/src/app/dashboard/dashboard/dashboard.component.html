@@ -1,0 +1,38 @@
+<p>
+  dashboard works!
+</p>
+<!--<table *ngIf='students'>
+    <tr>
+     <th>name</th>
+       <th>branch</th>
+       </tr>
+       <tr *ngFor='let student of students'>
+         <td>
+           {{student.Name}} 
+           {{student.branch}}
+           </td>
+       </tr>
+     </table>
+    -->
+    
+ <div>
+     <h3>search by name of the student</h3>
+       <input class="input" type="text" [(ngModel)]="term">
+       </div>
+ 
+       <table class="table" *ngIf='students&&students.length'>
+         <tr>
+           <th>Name</th>
+           <th>Branch</th>
+           <th>Percentage</th>
+         </tr>
+      
+      <div *ngIf="(students|filter:term).length===0">no student data found</div>
+     <tr *ngFor="let student of students|filter:term">
+       <td>{{student.Name}}</td>
+       <td>{{student.branch}}</td>
+       <td>{{student.percentage}}</td>
+   
+   </table>
+  
+  
